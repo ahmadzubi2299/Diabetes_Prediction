@@ -118,22 +118,50 @@ The models were evaluated using multiple classification metrics:
 
 ## Model Performance & Comparison
 
-The trained models were evaluated on the test set using accuracy, precision, recall, F1-score, and ROC-AUC. These metrics provide a broader view of model performance rather than relying only on accuracy.
+Several machine learning models were evaluated using Accuracy, Precision, Recall, F1-score, and ROC-AUC.
 
-| Model                 | Accuracy | Precision | Recall | F1-score | ROC-AUC |
-| --------------------- | -------: | --------: | -----: | -------: | ------: |
-| Logistic Regression   |   70.78% |    60.00% | 50.00% |   54.50% |  81.30% |
-| Random Forest         |   77.92% |    71.70% | 61.10% |   66.00% |  81.79% |
-| SVM                   |   74.03% |         — |      — |   60.00% |  79.64% |
-| Decision Tree         |   68.18% |         — |      — |   51.50% |  63.57% |
-| KNN                   |   75.32% |         — |      — |   63.50% |  78.86% |
-| XGBoost               |   76.00% |    67.30% | 61.10% |   64.10% |  82.31% |
-| AdaBoost              |   76.00% |    68.10% | 59.30% |   63.40% |       — |
-| Decision Tree (tuned) |   77.27% |         — | 75.93% |   70.09% |  79.92% |
+| Model                         |   Accuracy |  Precision |     Recall |   F1-Score |    ROC-AUC |
+| ----------------------------- | ---------: | ---------: | ---------: | ---------: | ---------: |
+| Logistic Regression           |     70.78% |     60.00% |     50.00% |     54.50% |     81.30% |
+| Random Forest                 |     77.92% |     71.70% |     61.10% |     66.00% |     81.79% |
+| SVM                           |     74.03% |          — |          — |     60.00% |     79.64% |
+| Decision Tree                 |     68.18% |          — |          — |     51.50% |     63.57% |
+| KNN                           |     75.32% |          — |          — |     63.50% |     78.86% |
+| XGBoost                       |     76.00% |     67.30% |     61.10% |     64.10% |     82.31% |
+| AdaBoost                      |     76.00% |     68.10% |     59.30% |     63.40% |          — |
+| **Final Tuned Decision Tree** | **79.22%** | **69.64%** | **72.22%** | **70.91%** | **80.06%** |
 
-The results show that different models provide different performance characteristics. Therefore, model evaluation was based on multiple metrics rather than accuracy alone.
+Because this is a medical prediction project, recall is an important metric to consider alongside accuracy. However, the model has not been independently clinically validated and should only be considered an educational machine learning demonstration.
 
-Because this is a diabetes prediction application, recall is an important metric to consider because it measures how many actual diabetes cases are correctly identified.
+### Final Model
+
+A tuned **Decision Tree Classifier** was selected as the model used in the deployed application.
+
+The final model was obtained using `GridSearchCV` with ROC-AUC as the optimization metric.
+
+**Best Parameters:**
+
+* `max_depth = 4`
+* `min_samples_leaf = 10`
+* `min_samples_split = 2`
+
+**Test Set Performance:**
+
+* Accuracy: **79.22%**
+* Precision: **69.64%**
+* Recall: **72.22%**
+* F1-Score: **70.91%**
+* ROC-AUC: **80.06%**
+
+The confusion matrix on the test set was:
+
+```text
+[[83 17]
+ [15 39]]
+```
+
+Because this is a medical prediction project, recall is an important metric to consider alongside accuracy. However, the model has not been independently clinically validated and should only be considered an educational machine learning demonstration.
+
 
 ## Visualizations
 
@@ -255,7 +283,7 @@ Diabetes_Prediction/
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/ahmadzubi2299/Diabetes_Prediction.git
 cd Diabetes_Prediction
 ```
 
