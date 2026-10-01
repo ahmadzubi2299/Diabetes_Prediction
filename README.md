@@ -1,5 +1,12 @@
 # Diabetes Prediction using Machine Learning
 
+## Live Demo
+
+Try the deployed diabetes prediction application:
+
+[**Launch Diabetes Prediction App**](https://diabetesprediction-sbicr3bmwkusgq5erc7bkv.streamlit.app/)
+
+
 A machine learning project that predicts the likelihood of diabetes using clinical health measurements. The project covers data preprocessing, model training, evaluation, hyperparameter tuning, and deployment through a Streamlit web application.
 
 ## Project Overview
